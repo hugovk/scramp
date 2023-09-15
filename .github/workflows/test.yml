@@ -2,7 +2,7 @@ name: scramp
 
 permissions: read-all
 
-on: [push]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   pytest:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
 
     container: python:${{ matrix.python-version }}
 
